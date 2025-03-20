@@ -1,21 +1,30 @@
 {
-    "num_epochs": 50,
+    "num_epochs": 100,
     "batch_size": 128,
     "learning_rate": 0.01,
     "weight_decay": 0.0005,
     "early_stopping_patience": 15,
     "scheduler_step_size": 30,
     "scheduler_gamma": 0.1,
-    "baseline": {
-        "dropout": 0.3
+    "optimizer": "sgd",
+    "momentum": 0.9,
+    "logging": {
+        "save_dir": "checkpoints",
+        "log_dir": "logs"
     },
-    "se": {
-        "dropout": 0.3,
-        "reduction_ratio": 16
-    },
-    "cbam": {
-        "dropout": 0.3,
-        "reduction_ratio": 16,
-        "spatial_kernel_size": 7
+    "models": {
+        "resnet18": {
+            "base": {
+                "learning_rate": 0.01
+            },
+            "se": {
+                "learning_rate": 0.01,
+                "reduction_ratio": 16
+            },
+            "cbam": {
+                "learning_rate": 0.01,
+                "reduction_ratio": 16
+            }
+        }
     }
 }
